@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isla Nublar</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+        #ui-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui-overlay">
+        <h1>Welcome to the Jurassic Park</h1>
+        <p>Use WASD keys to move and mouse to look around</p>
+        <p>Click on trex for more info</p>
+    </div>
+
+    <a-scene>
+        <a-assets>
+            <img id="ground" src="https://cdn.aframe.io/a-painter/images/floor.jpg" crossorigin="anonymous">
+            <img id="sky" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" crossorigin="anonymous">
+            <img id="leaves" src="https://cdn.aframe.io/a-painter/images/leaves.jpg" crossorigin="anonymous">
+        </a-assets>
+
+        <a-sky src="#sky"></a-sky>
+
+      
+        <a-plane src="#ground" rotation="-90 0 0" width="100" height="100" repeat="10 10"></a-plane>
+
+        <a-entity position="0 0 -30">
+            <a-box position="-10 5 0" depth="2" height="10" width="2" color="#8B4513"></a-box>
+            <a-box position="10 5 0" depth="2" height="10" width="2" color="#8B4513"></a-box>
+            <a-box position="0 10 0" depth="2" height="2" width="22" color="#8B4513"></a-box>
+            <a-text value="JURASSIC PARK" position="-8 8 1.1" scale="4 4 4" color="yellow"></a-text>
+        </a-entity>
+
+       
+        <a-entity position="-15 0 -25">
+            <a-cone color="#228B22" radius-bottom="3" radius-top="0" height="10" src="#leaves"></a-cone>
+            <a-cylinder color="#8B4513" radius="0.5" height="4" position="0 -7 0"></a-cylinder>
+        </a-entity>
+
+        <a-entity position="15 0 -25">
+            <a-cone color="#228B22" radius-bottom="3" radius-top="0" height="10" src="#leaves"></a-cone>
+            <a-cylinder color="#8B4513" radius="0.5" height="4" position="0 -7 0"></a-cylinder>
+        </a-entity>
+
+        <!-- i tried to make a trex but 😅 -->
+        <a-entity id="trex" position="5 0 -40">
+            <a-box color="#5c3317" depth="6" height="3" width="2" position="0 3 0"></a-box>
+            <a-sphere color="#5c3317" radius="1.2" position="0 5 2.5"></a-sphere>
+            <a-cone color="#5c3317" radius-bottom="1" radius-top="0.2" height="2" position="0 5.5 3.5" rotation="-30 0 0"></a-cone>
+            <a-box color="#5c3317" depth="1" height="0.3" width="0.7" position="0.5 5 3" rotation="0 -30 0"></a-box>
+            <a-box color="#5c3317" depth="1" height="0.3" width="0.7" position="-0.5 5 3" rotation="0 30 0"></a-box>
+            <a-cylinder color="#5c3317" radius="0.4" height="3" position="1 1.5 0.5" rotation="0 0 20"></a-cylinder>
+            <a-cylinder color="#5c3317" radius="0.4" height="3" position="-1 1.5 0.5" rotation="0 0 -20"></a-cylinder>
+            <a-cone color="#5c3317" radius-bottom="0.5" radius-top="0.1" height="4" position="0 3 -3.5" rotation="90 0 0"></a-cone>
+            <a-animation attribute="position" to="5 0 -10" dur="8000" direction="alternate" repeat="indefinite"></a-animation>
+        </a-entity>
+        <a-entity position="-10 0.5 -20">
+            <a-box width="4" height="1.5" depth="2" color="#FFD700"></a-box>
+            <a-torus-knot position="1.5 -0.75 1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="1.5 -0.75 -1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="-1.5 -0.75 1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="-1.5 -0.75 -1" radius="0.5" color="black"></a-torus-knot>
+            <a-box position="0 0.75 0" width="2" height="1" depth="2" color="#FFD700"></a-box>
+        </a-entity>
+         <a-entity position="-10 0.5 -40">
+            <a-box width="4" height="1.5" depth="2" color="#FFD700"></a-box>
+            <a-torus-knot position="1.5 -0.75 1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="1.5 -0.75 -1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="-1.5 -0.75 1" radius="0.5" color="black"></a-torus-knot>
+            <a-torus-knot position="-1.5 -0.75 -1" radius="0.5" color="black"></a-torus-knot>
+            <a-box position="0 0.75 0" width="2" height="1" depth="2" color="#FFD700"></a-box>
+        </a-entity>
+
+        <a-entity position="0 1.5 -25">
+            <a-plane color="#8B4513" height="2" width="4"></a-plane>
+            <a-text value="Welcome to Jurassic Park" position="-1.9 0.5 0.1" scale="0.8 0.8 0.8" color="white"></a-text>
+            <a-text value="Proceed with caution!" position="-1.5 -0.2 0.1" scale="0.6 0.6 0.6" color="yellow"></a-text>
+        </a-entity>
+
+        <a-entity position="-8 0 -28">
+            <a-box color="#A9A9A9" depth="2" height="3" width="2"></a-box>
+            <a-cylinder color="#A9A9A9" radius="1.2" height="0.5" position="0 1.75 0"></a-cylinder>
+            <a-plane color="#87CEEB" height="1" width="0.8" position="0.9 1 0.2" rotation="0 -90 0"></a-plane>
+        </a-entity>
+           <a-entity position="8 0 -28">
+            <a-box color="#A9A9A9" depth="2" height="3" width="2"></a-box>
+            <a-cylinder color="#A9A9A9" radius="1.2" height="0.5" position="0 1.75 0"></a-cylinder>
+            <a-plane color="#87CEEB" height="1" width="0.8" position="0.9 1 0.2" rotation="0 -90 0"></a-plane>
+        </a-entity>
+
+     
+        <a-entity position="-20 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+
+        <a-entity position="15 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+         <a-entity position="-25 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+
+        <a-entity position="20 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+         <a-entity position="-30 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+
+        <a-entity position="25 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+           <a-entity position="-35 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+
+        <a-entity position="30 0 -30">
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="4" width="0.2" position="5 0 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 2 0"></a-box>
+            <a-box color="#4d4d4d" depth="0.2" height="0.1" width="5" position="2.5 1 0"></a-box>
+        </a-entity>
+
+        <!-- Camera -->
+        <a-entity position="0 1.6 5" rotation="0 180 0">
+            <a-camera>
+                <a-cursor color="#FAFAFA"></a-cursor>
+            </a-camera>
+        </a-entity>
+
+        
+        <a-light type="ambient" color="#BBB"></a-light>
+        <a-light type="directional" color="#FFF" intensity="0.6" position="-0.5 1 1"></a-light>
+    </a-scene>
+
+    <script>
+       
+        document.getElementById('trex').addEventListener('click', function () {
+            alert('This is a Tyrannosaurus Rex, one of the largest carnivorous dinosaurs! It lived during the late Cretaceous period, about 68 to 66 million years ago.');
+        });
+
+       
+    </script>
+</body>
+</html>
